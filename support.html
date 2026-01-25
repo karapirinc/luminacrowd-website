@@ -9,6 +9,11 @@
     <meta name="title" content="Support - LuminaCrowd">
     <meta name="description" content="Get help with LuminaCrowd app. Find answers to frequently asked questions and contact our support team.">
 
+    <!-- Google Fonts - Neon Noir Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -19,175 +24,466 @@
                         'app-red': '#FF3B30',
                         'app-blue': '#007AFF',
                         'app-green': '#34C759',
+                        'app-yellow': '#FFCC00',
                         'app-purple': '#AF52DE',
                         'app-cyan': '#32ADE6',
+                        'app-orange': '#FF9500',
+                        'app-pink': '#FF2D55',
+                        'app-indigo': '#5856D6',
+                        'neon-pink': '#FF10F0',
+                        'neon-blue': '#00D4FF',
+                        'neon-purple': '#B026FF',
                     },
                     fontFamily: {
-                        'display': ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        'display': ['Bebas Neue', 'sans-serif'],
+                        'body': ['DM Sans', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
                     },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient-shift': 'gradient-shift 15s ease infinite',
+                        'fade-up': 'fade-up 0.8s ease-out forwards',
+                        'fade-up-delay-1': 'fade-up 0.8s ease-out 0.1s forwards',
+                        'fade-up-delay-2': 'fade-up 0.8s ease-out 0.2s forwards',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'orb-float-1': 'orb-float-1 20s ease-in-out infinite',
+                        'orb-float-2': 'orb-float-2 25s ease-in-out infinite',
+                        'orb-float-3': 'orb-float-3 18s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            'from': { textShadow: '0 0 20px rgba(255,16,240,0.5), 0 0 40px rgba(255,16,240,0.3), 0 0 60px rgba(176,38,255,0.2)' },
+                            'to': { textShadow: '0 0 40px rgba(255,16,240,0.8), 0 0 80px rgba(255,16,240,0.5), 0 0 120px rgba(176,38,255,0.4)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(1deg)' },
+                        },
+                        'gradient-shift': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        'fade-up': {
+                            'from': { opacity: '0', transform: 'translateY(30px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(255,16,240,0.4), 0 0 40px rgba(176,38,255,0.2)' },
+                            '50%': { boxShadow: '0 0 40px rgba(255,16,240,0.6), 0 0 80px rgba(176,38,255,0.4)' },
+                        },
+                        'orb-float-1': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                        },
+                        'orb-float-2': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(-40px, 30px) scale(0.95)' },
+                            '66%': { transform: 'translate(50px, -30px) scale(1.05)' },
+                        },
+                        'orb-float-3': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '50%': { transform: 'translate(20px, 40px) scale(1.1)' },
+                        },
+                    }
                 }
             }
         }
     </script>
     <style>
         html { scroll-behavior: smooth; }
+
+        /* Grain texture overlay */
+        .grain::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Animated gradient mesh background */
+        .gradient-mesh {
+            background: linear-gradient(-45deg,
+                #0a0a0a 0%,
+                #1a0a20 25%,
+                #0a1a2a 50%,
+                #200a1a 75%,
+                #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        /* Neon text effect */
+        .neon-text {
+            color: #fff;
+            text-shadow:
+                0 0 10px #FF10F0,
+                0 0 20px #FF10F0,
+                0 0 40px #FF10F0,
+                0 0 80px #B026FF;
+        }
+
+        .neon-text-blue {
+            text-shadow:
+                0 0 10px #00D4FF,
+                0 0 20px #00D4FF,
+                0 0 40px #00D4FF,
+                0 0 80px #007AFF;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #FF10F0 0%, #00D4FF 50%, #B026FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 16, 240, 0.3);
+            box-shadow:
+                0 8px 32px rgba(255, 16, 240, 0.15),
+                inset 0 0 60px rgba(255, 16, 240, 0.03);
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* Mesh gradient */
+        .mesh-gradient {
+            background:
+                radial-gradient(at 40% 20%, rgba(255,16,240,0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(0,212,255,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(176,38,255,0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, rgba(255,16,240,0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(0,212,255,0.1) 0px, transparent 50%);
+        }
+
+        /* Navigation active indicator */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #FF10F0, #00D4FF);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Logo glow on hover */
+        .logo:hover {
+            text-shadow: 0 0 20px rgba(255, 16, 240, 0.5);
+        }
+
+        /* CTA button effect */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, #FF10F0, #00D4FF, #B026FF, #FF10F0);
+            background-size: 300% 300%;
+            border-radius: inherit;
+            z-index: -1;
+            animation: gradient-shift 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 16, 240, 0.4);
+        }
+
+        /* FAQ accordion styles */
         details summary::-webkit-details-marker { display: none; }
-        details[open] summary .chevron { transform: rotate(180deg); }
+
+        details[open] summary .chevron {
+            transform: rotate(180deg);
+        }
+
+        details .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        details[open] .faq-content {
+            max-height: 500px;
+        }
+
+        details summary {
+            cursor: pointer;
+        }
+
+        details summary:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mobile hamburger menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
-<body class="bg-black text-white font-display antialiased">
+<body class="bg-black text-white font-body antialiased gradient-mesh grain">
+    <!-- Floating Orbs (Background Atmosphere) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="orb w-96 h-96 bg-neon-pink/20 top-1/4 -left-48 animate-orb-float-1"></div>
+        <div class="orb w-[500px] h-[500px] bg-neon-blue/15 top-1/2 -right-64 animate-orb-float-2"></div>
+        <div class="orb w-80 h-80 bg-neon-purple/20 bottom-1/4 left-1/3 animate-orb-float-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold tracking-wider">LUMINA<span class="text-gray-500">CROWD</span></a>
-            <div class="flex items-center gap-6">
-                <a href="index.html#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
-                <a href="index.html#gallery" class="text-sm text-gray-400 hover:text-white transition-colors">Gallery</a>
-                <a href="support.html" class="text-sm text-white">Support</a>
+            <a href="index.html" class="logo text-2xl font-display tracking-wider transition-all duration-300">
+                LUMINA<span class="text-gray-500">CROWD</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#features" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Features</a>
+                <a href="index.html#gallery" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Gallery</a>
+                <a href="support.html" class="nav-link active text-sm text-white transition-colors font-medium">Support</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white p-2" id="mobileMenuBtn" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black/95 backdrop-blur-xl border-l border-white/10 p-6 md:hidden" id="mobileMenu">
+            <button class="absolute top-4 right-4 text-white p-2" id="mobileMenuClose" aria-label="Close menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="flex flex-col gap-6 mt-12">
+                <a href="index.html#features" class="text-lg text-gray-300 hover:text-white transition-colors font-medium">Features</a>
+                <a href="index.html#gallery" class="text-lg text-gray-300 hover:text-white transition-colors font-medium">Gallery</a>
+                <a href="support.html" class="text-lg text-white font-medium">Support</a>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <section class="pt-32 pb-16 px-6">
+    <section class="pt-36 pb-16 px-6 relative">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Support Center</h1>
-            <p class="text-xl text-gray-400">We're here to help you light up the crowd</p>
+            <h1 class="text-5xl md:text-7xl font-display tracking-wide mb-6 opacity-0 animate-fade-up">
+                SUPPORT <span class="gradient-text">CENTER</span>
+            </h1>
+            <p class="text-xl text-gray-400 opacity-0 animate-fade-up-delay-1">We're here to help you light up the crowd</p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="py-12 px-6">
+    <section class="py-12 px-6 relative">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-white/5 rounded-2xl p-8 border border-white/10 text-center">
-                <div class="w-16 h-16 rounded-full bg-app-blue/20 flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-8 h-8 text-app-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="glass-card rounded-3xl p-10 text-center scroll-animate">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 border border-neon-blue/30 flex items-center justify-center mx-auto mb-8 relative">
+                    <svg class="w-10 h-10 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
+                    <div class="absolute inset-0 rounded-full bg-neon-blue/10 animate-pulse-glow"></div>
                 </div>
-                <h2 class="text-2xl font-semibold mb-2">Contact Us</h2>
-                <p class="text-gray-400 mb-6">Have a question or need help? Reach out and we'll get back to you as soon as possible.</p>
-                <a href="mailto:ugurcanoktay@gmail.com" class="inline-flex items-center gap-2 bg-app-blue text-white px-6 py-3 rounded-full font-medium hover:bg-app-blue/80 transition-colors">
+                <h2 class="text-3xl font-display tracking-wide mb-4">CONTACT US</h2>
+                <p class="text-gray-400 mb-8 max-w-md mx-auto">Have a question or need help? Reach out and we'll get back to you as soon as possible.</p>
+                <a href="mailto:ugurcanoktay@gmail.com" class="cta-button inline-flex items-center gap-3 bg-neon-blue text-white px-8 py-4 rounded-full font-semibold">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     Send Email
                 </a>
-                <p class="text-gray-500 text-sm mt-4">We typically respond within 24-48 hours</p>
+                <p class="text-gray-500 text-sm mt-6 font-mono">We typically respond within 24-48 hours</p>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-12 px-6">
+    <section class="py-16 px-6 relative">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 class="text-4xl md:text-5xl font-display tracking-wide mb-12 text-center scroll-animate">
+                FREQUENTLY <span class="neon-text-blue">ASKED</span>
+            </h2>
 
             <div class="space-y-4">
                 <!-- FAQ 1 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden group">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">How do I change colors?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate group" style="transition-delay: 0.1s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">How do I change colors?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         Tap anywhere on the screen to open the customization drawer. You'll see a palette of 10 vibrant iOS colors at the top. Simply tap any color to instantly change your display.
                     </div>
                 </details>
 
                 <!-- FAQ 2 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">What are the display modes?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.15s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">What are the display modes?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
-                        <ul class="space-y-2">
-                            <li><strong class="text-white">SOLID</strong> - Constant color display, perfect for holding up a steady light</li>
-                            <li><strong class="text-white">PULSE</strong> - Smooth breathing effect that fades in and out</li>
-                            <li><strong class="text-white">STROBE</strong> - Sharp on/off flashing effect for high-energy moments</li>
+                    <div class="faq-content px-6 pb-6 text-gray-400">
+                        <ul class="space-y-3">
+                            <li><strong class="text-white font-display tracking-wide">SOLID</strong> - Constant color display, perfect for holding up a steady light</li>
+                            <li><strong class="text-white font-display tracking-wide">PULSE</strong> - Smooth breathing effect that fades in and out</li>
+                            <li><strong class="text-white font-display tracking-wide">STROBE</strong> - Sharp on/off flashing effect for high-energy moments</li>
                         </ul>
                     </div>
                 </details>
 
                 <!-- FAQ 3 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">How does Music Sync work?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.2s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">How does Music Sync work?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         Music Sync uses your phone's microphone to detect beats in real-time. Enable it in the drawer, grant microphone permission when prompted, and your screen will flash in sync with the music. Use the sensitivity slider to adjust the beat detection threshold.
                     </div>
                 </details>
 
                 <!-- FAQ 4 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">Why is Music Sync locked?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.25s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">Why is Music Sync locked?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         Music Sync and Pro Themes are premium features available with a one-time purchase. This helps support continued development of the app. You can unlock all premium features for a small one-time fee.
                     </div>
                 </details>
 
                 <!-- FAQ 5 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">How do I adjust the speed?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.3s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">How do I adjust the speed?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         When using PULSE or STROBE mode, you'll see speed controls (+/-) in the drawer. The speed ranges from 10% (slow) to 100% (fast). Experiment to find the perfect rhythm for your light show.
                     </div>
                 </details>
 
                 <!-- FAQ 6 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">The app is not detecting beats correctly</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.35s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">The app is not detecting beats correctly</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         Try adjusting the sensitivity slider in the Music Sync section. Move it toward "High" for quieter environments or "Low" for very loud concerts. The optimal setting varies depending on your distance from speakers and ambient noise.
                     </div>
                 </details>
 
                 <!-- FAQ 7 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">Does the app work at concerts?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.4s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">Does the app work at concerts?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         Yes! LuminaCrowd is designed specifically for concerts and crowd events. The vibrant colors are optimized for visibility in large venues, and the full-screen display ensures your light is seen from the stage.
                     </div>
                 </details>
 
                 <!-- FAQ 8 -->
-                <details class="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/5">
-                        <span class="font-medium">How do I restore my purchase?</span>
-                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <details class="glass-card rounded-2xl overflow-hidden scroll-animate" style="transition-delay: 0.45s">
+                    <summary class="flex items-center justify-between p-6 transition-colors">
+                        <span class="font-semibold text-lg">How do I restore my purchase?</span>
+                        <svg class="w-5 h-5 text-gray-400 chevron transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </summary>
-                    <div class="px-6 pb-6 text-gray-400">
+                    <div class="faq-content px-6 pb-6 text-gray-400 leading-relaxed">
                         If you've previously purchased premium features, you can restore them by going to the App Store, tapping your profile icon, then selecting "Purchased." Find LuminaCrowd and reinstall it - your purchases will be automatically restored.
                     </div>
                 </details>
@@ -196,67 +492,71 @@
     </section>
 
     <!-- Troubleshooting Section -->
-    <section class="py-12 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-center">Troubleshooting</h2>
+    <section class="py-16 px-6 relative">
+        <div class="absolute inset-0 mesh-gradient"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-5xl font-display tracking-wide mb-12 text-center scroll-animate">
+                <span class="gradient-text">TROUBLESHOOTING</span>
+            </h2>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Issue 1 -->
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="glass-card rounded-2xl p-6 scroll-animate" style="transition-delay: 0.1s">
                     <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-app-red/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-app-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-app-red/20 to-app-pink/20 border border-app-red/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-app-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold mb-2">Microphone not working</h3>
-                            <p class="text-gray-400 text-sm">Go to Settings > LuminaCrowd > Microphone and ensure permission is enabled. Then restart the app.</p>
+                            <h3 class="font-display tracking-wide text-xl mb-2">MICROPHONE NOT WORKING</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Go to Settings > LuminaCrowd > Microphone and ensure permission is enabled. Then restart the app.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Issue 2 -->
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="glass-card rounded-2xl p-6 scroll-animate" style="transition-delay: 0.2s">
                     <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-app-purple/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-app-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-app-purple/20 to-neon-purple/20 border border-app-purple/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-app-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold mb-2">Screen dims during use</h3>
-                            <p class="text-gray-400 text-sm">Enable "Auto-Lock: Never" in Settings > Display & Brightness while using the app at concerts.</p>
+                            <h3 class="font-display tracking-wide text-xl mb-2">SCREEN DIMS DURING USE</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Enable "Auto-Lock: Never" in Settings > Display & Brightness while using the app at concerts.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Issue 3 -->
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="glass-card rounded-2xl p-6 scroll-animate" style="transition-delay: 0.3s">
                     <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-app-cyan/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-app-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-app-cyan/20 to-neon-blue/20 border border-app-cyan/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-app-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold mb-2">App crashes on launch</h3>
-                            <p class="text-gray-400 text-sm">Update to the latest version from the App Store, then restart your device and try again.</p>
+                            <h3 class="font-display tracking-wide text-xl mb-2">APP CRASHES ON LAUNCH</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Update to the latest version from the App Store, then restart your device and try again.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Issue 4 -->
-                <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <div class="glass-card rounded-2xl p-6 scroll-animate" style="transition-delay: 0.4s">
                     <div class="flex items-start gap-4">
-                        <div class="w-10 h-10 rounded-lg bg-app-green/20 flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-app-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-app-green/20 to-app-cyan/20 border border-app-green/30 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-app-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold mb-2">Purchase not recognized</h3>
-                            <p class="text-gray-400 text-sm">Sign out of your Apple ID, sign back in, then open LuminaCrowd. Your purchases should restore automatically.</p>
+                            <h3 class="font-display tracking-wide text-xl mb-2">PURCHASE NOT RECOGNIZED</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Sign out of your Apple ID, sign back in, then open LuminaCrowd. Your purchases should restore automatically.</p>
                         </div>
                     </div>
                 </div>
@@ -265,23 +565,72 @@
     </section>
 
     <!-- Back to App CTA -->
-    <section class="py-16 px-6">
+    <section class="py-20 px-6 relative">
         <div class="max-w-2xl mx-auto text-center">
-            <p class="text-gray-400 mb-6">Still need help? We're happy to assist!</p>
-            <a href="mailto:ugurcanoktay@gmail.com" class="text-app-blue hover:underline">Send us an email</a>
+            <p class="text-gray-400 mb-6 text-lg scroll-animate">Still need help? We're happy to assist!</p>
+            <a href="mailto:ugurcanoktay@gmail.com" class="text-neon-blue hover:text-neon-pink transition-colors text-lg font-semibold scroll-animate">ugurcanoktay@gmail.com</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-6 border-t border-white/10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <p class="text-gray-500 text-sm">&copy; 2024 LuminaCrowd. All rights reserved.</p>
-            <div class="flex items-center gap-8">
-                <a href="support.html" class="text-sm text-white">Support</a>
-                <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+    <footer class="py-16 px-6 border-t border-white/5 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-center md:text-left">
+                    <a href="index.html" class="text-2xl font-display tracking-wider mb-2 inline-block">
+                        LUMINA<span class="text-gray-600">CROWD</span>
+                    </a>
+                    <p class="text-gray-600 text-sm">&copy; 2024 LuminaCrowd. All rights reserved.</p>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <a href="support.html" class="text-sm text-white">Support</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript for interactions -->
+    <script>
+        // Scroll animations with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
