@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "GW4R543NG7.com.lumina.crowd",
+        "paths": [
+          "/luminacrowd-website/join",
+          "/luminacrowd-website/join/*"
+        ]
+      }
+    ]
+  }
+}

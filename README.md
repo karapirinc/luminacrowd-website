@@ -4,8 +4,9 @@ Marketing and support website for the LuminaCrowd iOS app.
 
 ## URLs
 
-- **Marketing**: https://ugurcanoktay.github.io/luminacrowd-website/
-- **Support**: https://ugurcanoktay.github.io/luminacrowd-website/support.html
+- **Marketing**: https://karapirinc.github.io/luminacrowd-website/
+- **Join**: https://karapirinc.github.io/luminacrowd-website/join?c=<encodedConfig>
+- **Support**: https://karapirinc.github.io/luminacrowd-website/support.html
 
 ## About LuminaCrowd
 
