@@ -4,9 +4,10 @@ Marketing and support website for the LuminaCrowd iOS app.
 
 ## URLs
 
-- **Marketing**: https://karapirinc.github.io/luminacrowd-website/
-- **Join**: https://karapirinc.github.io/luminacrowd-website/join?c=<encodedConfig>
-- **Support**: https://karapirinc.github.io/luminacrowd-website/support.html
+- **Primary domain**: https://luminacrowd.yiok.ai/
+- **Join**: https://luminacrowd.yiok.ai/join?c=<encodedConfig>
+- **Support**: https://luminacrowd.yiok.ai/support.html
+- **Universal links AASA**: https://luminacrowd.yiok.ai/.well-known/apple-app-site-association
 
 ## About LuminaCrowd
 
@@ -34,12 +35,14 @@ npx serve .
 
 ## Deployment
 
-Automatic deployment via GitHub Actions on push to the `main` branch.
+This repo is intended to be served from `luminacrowd.yiok.ai`.
 
-The workflow:
-1. Triggers on push to `main`
-2. Uploads the entire repository as an artifact
-3. Deploys to GitHub Pages
+For Apple universal links, both of these files must resolve with `200 OK` and no redirect:
+
+- `/.well-known/apple-app-site-association`
+- `/apple-app-site-association`
+
+The checked-in `_headers` file is for Cloudflare Pages so those extensionless files are served as `application/json`.
 
 ## License
 

@@ -1,14 +1,9 @@
-# Root Domain AASA Artifacts
+# Legacy Root-Domain AASA Artifacts
 
-These files are prepared for the root `karapirinc.github.io` Pages repository, not for the
-project site served from `/luminacrowd-website`.
+These files were prepared for the earlier `karapirinc.github.io` universal-link setup.
 
-To complete iOS universal-link hosting, copy:
+The current target host is `https://luminacrowd.yiok.ai`, and the live AASA files should come
+from the repository root instead:
 
-- `.well-known/apple-app-site-association`
-- `apple-app-site-association`
-
-to the root site so they are published at:
-
-- `https://karapirinc.github.io/.well-known/apple-app-site-association`
-- `https://karapirinc.github.io/apple-app-site-association`
+- `/.well-known/apple-app-site-association`
+- `/apple-app-site-association`
