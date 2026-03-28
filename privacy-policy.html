@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - LuminaCrowd</title>
+
+    <meta name="title" content="Privacy Policy - LuminaCrowd">
+    <meta name="description" content="LuminaCrowd privacy policy covering camera access, microphone access, purchases, local storage, and support contact.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-pink': '#FF10F0',
+                        'neon-blue': '#00D4FF',
+                        'neon-purple': '#B026FF',
+                    },
+                    fontFamily: {
+                        'display': ['Bebas Neue', 'sans-serif'],
+                        'body': ['DM Sans', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .gradient-mesh {
+            background: linear-gradient(-45deg,
+                #0a0a0a 0%,
+                #1a0a20 25%,
+                #0a1a2a 50%,
+                #200a1a 75%,
+                #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF10F0 0%, #00D4FF 50%, #B026FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .grain::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #FF10F0, #00D4FF);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body antialiased gradient-mesh grain">
+    <nav class="sticky top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-display tracking-wider">
+                LUMINA<span class="text-gray-500">CROWD</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Home</a>
+                <a href="support.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Support</a>
+                <a href="privacy-policy.html" class="nav-link active text-sm text-white transition-colors font-medium">Privacy</a>
+                <a href="terms-of-use.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="px-6 py-16 md:py-24">
+        <div class="max-w-4xl mx-auto">
+            <header class="mb-12 md:mb-16">
+                <p class="text-sm uppercase tracking-[0.3em] text-gray-500 font-mono mb-4">Legal</p>
+                <h1 class="text-5xl md:text-7xl font-display tracking-wide mb-6">
+                    PRIVACY <span class="gradient-text">POLICY</span>
+                </h1>
+                <div class="glass-card rounded-2xl p-6">
+                    <p class="text-gray-300 leading-relaxed">
+                        Last updated: March 28, 2026. This Privacy Policy explains how LuminaCrowd handles information when you use the LuminaCrowd mobile app, the support website, and related support communications.
+                    </p>
+                </div>
+            </header>
+
+            <section class="glass-card rounded-3xl p-8 md:p-10 space-y-10">
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">1. Quick Summary</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>LuminaCrowd does not require you to create an account to use the app.</p>
+                        <p>We do not use third-party advertising SDKs, and we do not use analytics or tracking SDKs in the current app build.</p>
+                        <p>Camera access is used to scan host QR codes. Microphone access is used for Music Sync. Those inputs are used to power the feature locally on your device.</p>
+                        <p>Creator Pack purchases are processed through Apple and RevenueCat so the app can unlock and restore paid features.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">2. Information We Use</h2>
+                    <div class="space-y-5 text-gray-300 leading-relaxed">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Camera access</h3>
+                            <p>When you choose to join a show by scanning a QR code, the app requests camera access. Camera input is used to read the invite code. We do not intentionally store your camera feed or upload it to our servers.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Microphone access</h3>
+                            <p>When you enable Music Sync, the app requests microphone access so it can react to live audio levels and beats. Audio input is used to drive light effects while the feature is active. We do not intentionally store audio recordings or upload microphone content to our servers.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Clipboard text</h3>
+                            <p>If you choose to paste an invite, the app may read clipboard text to help you join a show. This is used only to detect or parse an invite code locally on your device.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Local device storage</h3>
+                            <p>The app stores settings such as onboarding state and saved presets on your device so your experience works as expected across launches.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Purchase and restore information</h3>
+                            <p>If you buy or restore Creator Pack, Apple handles the transaction and RevenueCat helps us verify entitlement status and restore access to paid features. This may involve purchase identifiers, entitlement status, and device- or account-linked transaction metadata needed for billing support and restore flows.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Support communications</h3>
+                            <p>If you email us for support, we receive the information you include in your message, such as your email address and the contents of your request.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">Website request data</h3>
+                            <p>When you visit this website, hosting and delivery providers may process standard technical request data such as IP address, browser type, and request logs to deliver and secure the site.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">3. How We Use Information</h2>
+                    <ul class="space-y-3 text-gray-300 leading-relaxed list-disc pl-6">
+                        <li>To let you join a show by QR code or pasted invite.</li>
+                        <li>To run Music Sync using live microphone input.</li>
+                        <li>To save your local presets and settings on your device.</li>
+                        <li>To unlock, restore, and support Creator Pack purchases.</li>
+                        <li>To respond to support requests and troubleshoot problems.</li>
+                        <li>To operate, secure, and maintain the support website.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">4. Sharing and Service Providers</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>We do not sell personal information.</p>
+                        <p>We may rely on service providers or platform operators that process limited information to provide the app or site, including:</p>
+                        <ul class="space-y-2 list-disc pl-6">
+                            <li>Apple, for App Store distribution, billing, and purchase restoration.</li>
+                            <li>RevenueCat, for purchase entitlement management.</li>
+                            <li>Hosting and delivery providers such as GitHub Pages and Cloudflare, for serving the website.</li>
+                            <li>Email providers, when you contact support by email.</li>
+                        </ul>
+                        <p>Their handling of data is governed by their own terms and privacy policies.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">5. Data Retention</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>Local presets, settings, and onboarding state remain on your device until you delete them, uninstall the app, or clear app data through your device settings.</p>
+                        <p>Support emails may be retained as long as reasonably needed to answer your request, maintain support history, or comply with legal obligations.</p>
+                        <p>Purchase and entitlement records are retained according to Apple and RevenueCat policies.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">6. Your Choices</h2>
+                    <ul class="space-y-3 text-gray-300 leading-relaxed list-disc pl-6">
+                        <li>You can deny or revoke camera access in your device settings.</li>
+                        <li>You can deny or revoke microphone access in your device settings.</li>
+                        <li>You can avoid clipboard parsing by entering an invite manually instead of pasting.</li>
+                        <li>You can delete the app to remove local app data stored on your device.</li>
+                        <li>You can contact us to ask privacy questions using the email address below.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">7. Children's Privacy</h2>
+                    <p class="text-gray-300 leading-relaxed">LuminaCrowd is not directed to children under 13, and we do not knowingly collect personal information from children under 13 through the app.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">8. Changes to This Policy</h2>
+                    <p class="text-gray-300 leading-relaxed">We may update this Privacy Policy from time to time. If we make material changes, we will update the date at the top of this page and publish the revised version here.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">9. Contact</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        For support or privacy questions, contact:
+                        <a class="text-neon-blue hover:text-neon-pink transition-colors" href="mailto:ugurcanoktay@gmail.com">ugurcanoktay@gmail.com</a>
+                    </p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+                <a href="index.html" class="text-2xl font-display tracking-wider mb-2 inline-block">
+                    LUMINA<span class="text-gray-600">CROWD</span>
+                </a>
+                <p class="text-gray-600 text-sm">&copy; 2026 LuminaCrowd. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="support.html" class="text-sm text-gray-400 hover:text-white transition-colors">Support</a>
+                <a href="privacy-policy.html" class="text-sm text-white">Privacy Policy</a>
+                <a href="terms-of-use.html" class="text-sm text-gray-400 hover:text-white transition-colors">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

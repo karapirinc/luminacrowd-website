@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - LuminaCrowd</title>
+
+    <meta name="title" content="Terms of Use - LuminaCrowd">
+    <meta name="description" content="LuminaCrowd terms of use for the mobile app, support site, and Creator Pack features.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-pink': '#FF10F0',
+                        'neon-blue': '#00D4FF',
+                        'neon-purple': '#B026FF',
+                    },
+                    fontFamily: {
+                        'display': ['Bebas Neue', 'sans-serif'],
+                        'body': ['DM Sans', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .gradient-mesh {
+            background: linear-gradient(-45deg,
+                #0a0a0a 0%,
+                #1a0a20 25%,
+                #0a1a2a 50%,
+                #200a1a 75%,
+                #0a0a0a 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF10F0 0%, #00D4FF 50%, #B026FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .grain::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #FF10F0, #00D4FF);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body antialiased gradient-mesh grain">
+    <nav class="sticky top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-display tracking-wider">
+                LUMINA<span class="text-gray-500">CROWD</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Home</a>
+                <a href="support.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Support</a>
+                <a href="privacy-policy.html" class="nav-link text-sm text-gray-400 hover:text-white transition-colors font-medium">Privacy</a>
+                <a href="terms-of-use.html" class="nav-link active text-sm text-white transition-colors font-medium">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="px-6 py-16 md:py-24">
+        <div class="max-w-4xl mx-auto">
+            <header class="mb-12 md:mb-16">
+                <p class="text-sm uppercase tracking-[0.3em] text-gray-500 font-mono mb-4">Legal</p>
+                <h1 class="text-5xl md:text-7xl font-display tracking-wide mb-6">
+                    TERMS OF <span class="gradient-text">USE</span>
+                </h1>
+                <div class="glass-card rounded-2xl p-6 space-y-3 text-gray-300 leading-relaxed">
+                    <p>Last updated: March 28, 2026.</p>
+                    <p>These Terms of Use apply to the LuminaCrowd website, support materials, and use of the LuminaCrowd mobile app except where platform terms or mandatory consumer laws apply differently.</p>
+                </div>
+            </header>
+
+            <section class="glass-card rounded-3xl p-8 md:p-10 space-y-10">
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">1. Acceptance</h2>
+                    <p class="text-gray-300 leading-relaxed">By accessing the website or using LuminaCrowd, you agree to these Terms of Use. If you do not agree, do not use the website or app.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">2. App Store Distribution</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>If you downloaded LuminaCrowd from Apple's App Store, your license to use the app is also subject to Apple's Standard Licensed Application End User License Agreement.</p>
+                        <p>You can review Apple's standard terms here:
+                            <a class="text-neon-blue hover:text-neon-pink transition-colors" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard EULA</a>.
+                        </p>
+                        <p>These Terms are intended to supplement, not replace, platform terms that apply to your download or purchase.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">3. Allowed Use</h2>
+                    <ul class="space-y-3 text-gray-300 leading-relaxed list-disc pl-6">
+                        <li>You may use LuminaCrowd for personal, non-exclusive use in accordance with these terms and applicable platform rules.</li>
+                        <li>You may not use the app or website in a way that is unlawful, abusive, harmful, fraudulent, or intended to disrupt other people, devices, or networks.</li>
+                        <li>You may not attempt to copy, reverse engineer, interfere with, or misuse the app except to the extent applicable law allows it.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">4. Permissions and Features</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>Some features depend on device permissions. For example, QR join flows require camera access and Music Sync requires microphone access.</p>
+                        <p>You are responsible for how and where you use bright screen effects, flashing modes, and music-reactive features. Do not use the app in situations where it could create safety risks or violate venue rules.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">5. Purchases and Creator Pack</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>LuminaCrowd may offer paid digital features such as Creator Pack. Prices, taxes, billing, refund eligibility, and purchase processing are handled through the platform you purchased from, such as Apple.</p>
+                        <p>If you previously bought Creator Pack, you may be able to restore access through the in-app restore flow, subject to the platform account used for the original purchase.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">6. Intellectual Property</h2>
+                    <p class="text-gray-300 leading-relaxed">LuminaCrowd, the website content, branding, visuals, and related materials are owned by the app publisher or its licensors and are protected by applicable intellectual property laws. These Terms do not transfer ownership to you.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">7. Third-Party Services and Links</h2>
+                    <p class="text-gray-300 leading-relaxed">The app and website may rely on or link to third-party services, including Apple, RevenueCat, GitHub Pages, and Cloudflare. We are not responsible for third-party services, content, or policies.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">8. Disclaimers</h2>
+                    <div class="space-y-3 text-gray-300 leading-relaxed">
+                        <p>LuminaCrowd is provided on an "as is" and "as available" basis to the extent permitted by applicable law.</p>
+                        <p>We do not guarantee uninterrupted availability, perfect synchronization, compatibility with every device or venue condition, or that the app will always be free of bugs or errors.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">9. Limitation of Liability</h2>
+                    <p class="text-gray-300 leading-relaxed">To the maximum extent permitted by applicable law, we are not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of data, profits, goodwill, or business arising from your use of LuminaCrowd or the website.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">10. Changes and Availability</h2>
+                    <p class="text-gray-300 leading-relaxed">We may update, suspend, or discontinue parts of the app, website, or these Terms from time to time. If we update these Terms, we will revise the date at the top of this page.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-3xl font-display tracking-wide mb-4">11. Contact</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Questions about these Terms can be sent to
+                        <a class="text-neon-blue hover:text-neon-pink transition-colors" href="mailto:ugurcanoktay@gmail.com">ugurcanoktay@gmail.com</a>.
+                    </p>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+                <a href="index.html" class="text-2xl font-display tracking-wider mb-2 inline-block">
+                    LUMINA<span class="text-gray-600">CROWD</span>
+                </a>
+                <p class="text-gray-600 text-sm">&copy; 2026 LuminaCrowd. All rights reserved.</p>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="support.html" class="text-sm text-gray-400 hover:text-white transition-colors">Support</a>
+                <a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="terms-of-use.html" class="text-sm text-white">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -7,6 +7,8 @@ Marketing and support website for the LuminaCrowd iOS app.
 - **Primary domain**: https://luminacrowd.yiok.ai/
 - **Join**: https://luminacrowd.yiok.ai/join?c=<encodedConfig>
 - **Support**: https://luminacrowd.yiok.ai/support.html
+- **Privacy Policy**: https://luminacrowd.yiok.ai/privacy-policy.html
+- **Terms of Use**: https://luminacrowd.yiok.ai/terms-of-use.html
 - **Universal links AASA**: https://luminacrowd.yiok.ai/.well-known/apple-app-site-association
 
 ## About LuminaCrowd
